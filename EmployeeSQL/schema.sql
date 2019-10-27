@@ -7,19 +7,27 @@
 @TODO: Create Tables
 */
 
-if exists drop table departments end if;
-if exists drop table employees end if;
-if exists drop table dept_emply end if;
-if exists drop table dept_man end if;
-if exists drop table salaries end if;
-if exists drop table titles end if;
-
-
+DROP TABLE IF EXISTS DEPARTMENTS;
+DROP TABLE IF EXISTS EMPLOYEES;
+DROP TABLE IF EXISTS DEPT_MAN;
+DROP TABLE IF EXISTS DEPT_EMPLY;
+DROP TABLE IF EXISTS SALARIES;
+DROP TABLE IF EXISTS TITLES;
 
 -- Departments Table
 create table departments (
   dept_no VARCHAR(5) PRIMARY KEY NOT NULL,
   dept_name VARCHAR(25)
+);
+
+-- Employees Table
+create table employees (
+  emp_no INTEGER PRIMARY KEY,
+  birthdate VARCHAR(10),
+  first_name VARCHAR,
+  last_name VARCHAR,
+  gender VARCHAR(1),
+  hire_date VARCHAR(10)
 );
 
 -- Department Employees Table
@@ -40,16 +48,6 @@ create table dept_man (
   to_date VARCHAR(10),
   FOREIGN KEY (dept_no) REFERENCES departments(dept_no),
   FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
-);
-
--- Employees Table
-create table employees (
-  emp_no INTEGER PRIMARY KEY,
-  birthdate VARCHAR(10),
-  first_name VARCHAR,
-  last_name VARCHAR,
-  gender VARCHAR(1),
-  hire_date VARCHAR(10)
 );
 
 -- Salaries Table
