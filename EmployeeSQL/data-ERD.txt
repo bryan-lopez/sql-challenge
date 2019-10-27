@@ -1,0 +1,47 @@
+Departments as dept
+-
+dept_no VARCHAR(5) PK
+dept_name VARCHAR(25)
+
+Department_Employees
+-
+emp_no INTEGER FK >- emply.emp_no
+dept_no VARCHAR(5) FK >- dept.dept_no
+from_date VARCHAR(10)
+to_date VARCHAR(10)
+
+
+Department_Manager
+-
+dept_no VARCHAR(5) FK >- dept.dept_no
+emp_no INTEGER FK >- emply.emp_no
+from_date VARCHAR(10)
+to_date VARCHAR(10)
+
+
+Employees as emply
+-
+emp_no INTEGER PK
+birthdate VARCHAR(10)
+first_name VARCHAR
+last_name VARCHAR
+gender VARCHAR(1)
+hire_date VARCHAR(10)
+
+
+
+Salaries
+-
+emp_no INTEGER FK >- emply.emp_no
+salary INTEGER
+from_date VARCHAR(10)
+to_date VARCHAR(10)
+
+
+
+Titles
+-
+emp_no INTEGER FK >- emply.emp_no
+title VARCHAR
+from_date VARCHAR(10)
+to_date VARCHAR(10)
